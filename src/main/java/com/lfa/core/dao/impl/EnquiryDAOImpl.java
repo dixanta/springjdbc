@@ -27,71 +27,71 @@ public class EnquiryDAOImpl implements EnquiryDAO {
     
     @Autowired
     JdbcTemplate jdbcTemplate;
-
+    
     @Override
     public List<Enquiry> getAll() throws ClassNotFoundException, SQLException {
-        String sql="Select * from enquiries";
-        return jdbcTemplate.query(sql,new RowMapper<Enquiry>() {
-
+        String sql = "Select * from enquiries";
+        return jdbcTemplate.query(sql, new RowMapper<Enquiry>() {
+            
             @Override
-            public Enquiry mapRow(ResultSet rs,int i) throws SQLException {
+            public Enquiry mapRow(ResultSet rs, int i) throws SQLException {
                 return EnquiryBuilder.create()
-                .setId(rs.getInt("id"))
-                .setFirstName(rs.getString("first_name"))
-                .setLastName(rs.getString("last_name"))
-                .setEmail(rs.getString("email"))
-                .setContactNo(rs.getString("contact_no"))
-                .setCourse(new Course(rs.getInt("course_id")))
-                .setStatus(new EnquiryStatus(rs.getInt("status")))
-                .build();
+                        .setId(rs.getInt("id"))
+                        .setFirstName(rs.getString("first_name"))
+                        .setLastName(rs.getString("last_name"))
+                        .setEmail(rs.getString("email"))
+                        .setContactNo(rs.getString("contact_no"))
+                        .setMessage(rs.getString("message"))
+                        .setCourse(new Course(rs.getInt("course_id")))
+                        .setStatus(new EnquiryStatus(rs.getInt("status")))
+                        .build();
                 
             }
         });
     }
-
+    
     @Override
     public Enquiry getById(int id) throws ClassNotFoundException, SQLException {
-        String sql="select * from enquiries where id=?";
-        return jdbcTemplate.queryForObject(sql,new Object[]{id},new RowMapper<Enquiry>() {
-
+        String sql = "select * from enquiries where id=?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{id}, new RowMapper<Enquiry>() {
+            
             @Override
-            public Enquiry mapRow(ResultSet rs,int i) throws SQLException {
+            public Enquiry mapRow(ResultSet rs, int i) throws SQLException {
                 return EnquiryBuilder.create()
-                .setId(rs.getInt("id"))
-                .setFirstName(rs.getString("first_name"))
-                .setLastName(rs.getString("last_name"))
-                .setEmail(rs.getString("email"))
-                .setContactNo(rs.getString("contact_no"))
-                .setCourse(new Course(rs.getInt("course_id")))
-                .setStatus(new EnquiryStatus(rs.getInt("status")))
-                .build();
+                        .setId(rs.getInt("id"))
+                        .setFirstName(rs.getString("first_name"))
+                        .setLastName(rs.getString("last_name"))
+                        .setEmail(rs.getString("email"))
+                        .setContactNo(rs.getString("contact_no"))
+                        .setMessage(rs.getString("message"))
+                        .setCourse(new Course(rs.getInt("course_id")))
+                        .setStatus(new EnquiryStatus(rs.getInt("status")))
+                        .build();
             }
         });
     }
     
-    
-
     @Override
     public int insert(Enquiry t) throws ClassNotFoundException, SQLException {
-        String sql="insert into enquiries(first_name,last_name,"
-                + "email,contact_no,course_id,status)"
-                + " values(?,?,?,?,?,?)";
-        return jdbcTemplate.update(sql,new Object[]{
-            t.getFirstName(),t.getLastName(),
-            t.getEmail(),t.getContactNo(),
-            t.getCourse().getId(),t.getStatus().getId()
+        String sql = "insert into enquiries(first_name,last_name,"
+                + "email,contact_no,course_id,message,status)"
+                + " values(?,?,?,?,?,?,?)";
+        return jdbcTemplate.update(sql, new Object[]{
+            t.getFirstName(), t.getLastName(),
+            t.getEmail(), t.getContactNo(),
+            t.getCourse().getId(),t.getMessage(), t.getStatus().getId()
         });
     }
-
+    
     @Override
     public int update(Enquiry t) throws ClassNotFoundException, SQLException {
         return 0;
     }
-
+    
     @Override
     public int delete(int id) throws ClassNotFoundException, SQLException {
-        String sql="delete from enquiries where id=?";
-        return jdbcTemplate.update(sql,new Object[]{
+        String sql = "delete from enquiries where id=?";
+        return jdbcTemplate.update(sql, new Object[]{
             id
         });
     }

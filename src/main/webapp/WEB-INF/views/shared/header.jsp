@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="${SITE_URL}/static/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="${SITE_URL}/static/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="${SITE_URL}/static/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <script src="${SITE_URL}/static/js/jquery.min.js" type="text/javascript"></script>
     <script src="${SITE_URL}/static/js/bootstrap.min.js" type="text/javascript"></script>

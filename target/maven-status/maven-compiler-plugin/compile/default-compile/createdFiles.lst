@@ -16,3 +16,5 @@ com\lfa\core\dao\EnquiryStatusDAO.class
 com\lfa\core\dao\impl\EnquiryStatusDAOImpl$1.class
 com\lfa\webapp\controller\DefaultController.class
 com\lfa\core\dao\impl\EnquiryDAOImpl.class
+com\lfa\webapp\controller\EnrollController.class
+com\lfa\webapp\controller\CourseController.class

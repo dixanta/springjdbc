@@ -16,7 +16,7 @@ import com.lfa.core.entity.EnquiryStatus;
 public class EnquiryBuilder {
 
     private int id;
-    private String firstName, lastName, email, contactNo;
+    private String firstName, lastName, email, contactNo,message;
     private Course course;
     private EnquiryStatus status;
     
@@ -50,6 +50,11 @@ public class EnquiryBuilder {
 
     public EnquiryBuilder setContactNo(String contactNo) {
         this.contactNo = contactNo;
+        return this;
+    }
+    
+    public EnquiryBuilder setMessage(String message) {
+        this.message = message;
         return this;
     }
 

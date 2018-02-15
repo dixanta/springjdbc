@@ -13,6 +13,7 @@ public class Enquiry {
     private int id;
     private String firstName,lastName,email,contactNo;
     private Course course;
+    private String message;
     private EnquiryStatus status;
 
     public Enquiry() {
@@ -77,6 +78,14 @@ public class Enquiry {
         this.course = course;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
     public EnquiryStatus getStatus() {
         return status;
     }
